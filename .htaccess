@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /easyessay/
+RewriteCond %{REQUEST_FILENAME} !^(.*)\.(gif|png|jpg|jpeg)$
+RewriteCond $1 !^(index\.php|img|static|podcast|js|robots\.txt|css)
+RewriteRule ^(.*)$ /easyessay/index.php?/$1 [L]
+AddDefaultCharset UTF-8
