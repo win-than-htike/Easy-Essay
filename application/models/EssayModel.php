@@ -22,6 +22,19 @@ class EssayModel extends CI_Model
 
 	}
 
+	public function getAllCategory()
+	{
+		$result = $this->db->get('category');
+		if ($result->num_rows() > 0) 
+		{
+			foreach ($result->result() as $row) 
+			{
+				$data[] = $row;
+			}	
+			return $data;
+		}
+	}
+
 	public function get_single($id)
 	{
 		$this->db->where('e_id', $id);
@@ -35,7 +48,7 @@ class EssayModel extends CI_Model
 
 			'title' => $essay['title'],
 			'user_id' => 1,
-			'category_id' => 1,
+			'category_id' => $essay['category_id'],
 			'teacher_name' => $essay['teacher_name'],
 			'introduction' => $essay['intro'],
 			'body' => $essay['body'],
@@ -54,7 +67,7 @@ class EssayModel extends CI_Model
 
 			'title' => $essay['title'],
 			'user_id' => 1,
-			'category_id' => 1,
+			'category_id' => $essay['category_id'],
 			'teacher_name' => $essay['teacher_name'],
 			'introduction' => $essay['intro'],
 			'body' => $essay['body'],

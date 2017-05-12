@@ -42,6 +42,17 @@
 					<textarea class="form-control" rows="5" name="conclusion" required><?php echo $essay->conclusion; ?></textarea>
 				</div>
 
+				<div class="form-group">
+					<select name="category_id" class="form-control">
+					<option value="<?php echo 0; ?>">Choose Category</option>
+						<?php foreach ($category as $c): ?>
+							<option value="<?php echo $c->c_id; ?>" <?php if($c->c_id == $essay->category_id) echo "selected"; ?>>
+								<?php echo $c->name; ?>
+							</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+
 				<input type="submit" value="Update" class="btn btn-info">
 
 				<?php echo form_close(); ?>

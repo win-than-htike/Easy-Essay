@@ -42,6 +42,15 @@
 					<textarea class="form-control" rows="5" name="conclusion" required></textarea>
 				</div>
 
+				<div class="form-group">
+					<select name="category_id" class="form-control">
+					<option value="<?php echo 0; ?>">Choose Category</option>
+						<?php foreach ($category as $c): ?>
+							<option value="<?php echo $c->c_id; ?>"><?php echo $c->name; ?></option>
+						<?php endforeach ?>
+					</select>
+				</div>
+
 				<input type="submit" value="Submit" class="btn btn-success">
 
 				<?php echo form_close(); ?>

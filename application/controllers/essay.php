@@ -20,7 +20,8 @@ class Essay extends CI_Controller {
 
 		}else{
 
-			$this->load->view('create_essay');
+			$data['category'] = $this->EssayModel->getAllCategory();
+			$this->load->view('essay_create', $data);
 
 		}
 
@@ -41,7 +42,8 @@ class Essay extends CI_Controller {
 			if ($essay->num_rows() > 0) {
 
 				$data['essay'] = $essay->row();
-				$this->load->view('edit_essay', $data);
+				$data['category'] = $this->EssayModel->getAllCategory();
+				$this->load->view('essay_edit', $data);
 
 			}
 
