@@ -8,10 +8,21 @@ class EssayModel extends CI_Model
 
 	function getAllEssay()
 	{
-		$this->db->join('category','category.c_id=essay.category_id');
-		$result = $this->db->get('essay');
+		$this->load->library('pagination');
 
-		if ($result->num_rows() > 0) 
+		$config['base_url'] = base_url().'essay/index/';
+		$config['total_rows'] = $this->db->get('essay')->num_rows();
+		$config['pre_page'] = 10;
+		$config['num_links'] = 20;
+		$config['full_tag_open'] = '<div id="pagination">';
+		$config['full_tag_close'] = '</div>'; 
+
+		$this->pagination->initialize($config);
+
+		$this->db->join('category','category.c_id=essay.category_id');
+		$result = $this->db->get('essay', $config['pre_page'], $this->uri->segment(3));
+
+		if ($result->num_rows() > 0)
 		{
 			foreach ($result->result() as $row) 
 			{

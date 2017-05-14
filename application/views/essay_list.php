@@ -3,6 +3,19 @@
 <head>
 	<title>Essay List</title>
 	<?php include 'head.php'; ?>
+	<style type="text/css">
+		#pagination a, #pagination strong{
+			background-color: #fff;
+  			border: 1px solid #ddd;
+			padding: 6px 12px;
+			text-decoration: none;
+			line-height: 1.42857143;
+			color: #337ab7;
+			margin-left: -1px;
+			border-top-left-radius: 4px;
+  			border-bottom-left-radius: 4px;
+		}
+	</style>
 </head>
 <body>
 
@@ -38,11 +51,10 @@
 									</td>
 								</tr>
 							<?php endforeach ?>
-							
 						</tbody>
 					</table>
 				</div>
-
+				<?php echo $this->pagination->create_links(); ?>
 			</div>
 		</div>
 	</div>
