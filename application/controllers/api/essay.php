@@ -5,8 +5,13 @@ class Essay extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('EssayModel');
-		$data['data'] = $this->EssayModel->getAllEssay();
+
+		$page = $this->input->get('page');
+		$pagesize = 10;
+		$offset = ($page-1)*$pagesize;
+
+		$this->load->model('api/ApiEssayModel');
+		$data = $this->ApiEssayModel->getAllEssay($pagesize, $offset);
 
 		header('Content-Type: application/json');
     	echo json_encode( $data );

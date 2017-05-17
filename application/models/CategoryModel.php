@@ -31,7 +31,9 @@ class CategoryModel extends CI_Model
 		$data = [
 
 			'name' => $data['name'],
-			'description' => $data['desc']
+			'description' => $data['desc'],
+			'create_date' => date('Y-m-d HH:i:s'),
+			'update_date' => date('Y-m-d HH:i:s')
 
 		];
 
@@ -45,7 +47,8 @@ class CategoryModel extends CI_Model
 		$data = [
 
 			'name' => $data['name'],
-			'description' => $data['desc']
+			'description' => $data['desc'],
+			'update_date' => date('Y-m-d HH:i:s')
 
 		];
 

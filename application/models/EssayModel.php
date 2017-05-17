@@ -63,7 +63,9 @@ class EssayModel extends CI_Model
 			'teacher_name' => $essay['teacher_name'],
 			'introduction' => $essay['intro'],
 			'body' => $essay['body'],
-			'conclusion' => $essay['conclusion']
+			'conclusion' => $essay['conclusion'],
+			'create_date' => date('Y-m-d HH:i:s'),
+			'update_date' => date('Y-m-d HH:i:s')
 
 		];
 
@@ -82,7 +84,8 @@ class EssayModel extends CI_Model
 			'teacher_name' => $essay['teacher_name'],
 			'introduction' => $essay['intro'],
 			'body' => $essay['body'],
-			'conclusion' => $essay['conclusion']
+			'conclusion' => $essay['conclusion'],
+			'update_date' => date('Y-m-d HH:i:s')
 
 		];
 

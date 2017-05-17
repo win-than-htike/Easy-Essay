@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Essay extends CI_Controller {
+class Essay extends E_Controller {
 
 	public function index()
 	{
